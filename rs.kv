@@ -1,0 +1,32 @@
+<ResultScreen>
+    GridLayout:
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: root.width, root.height
+        cols: 2
+        MyLabel:
+            text: 'Prorate = '
+        MyLabel:
+            text: root.rs_prorate
+        MyLabel:
+            text: 'Base price = '
+        MyLabel:
+            text: root.rs_base_price
+        MyLabel:
+            text: 'subtotal = '
+        MyLabel:
+            text: root.rs_subtotal
+        MyLabel:
+            text: 'Tax = '
+        MyLabel:
+            text: root.rs_tax
+        MyLabel:
+            text: 'Grand Total = '
+        MyLabel:
+            text: root.rs_grand_total
+        MyLabel:
+            text: 'Payment due:'
+        MyLabel:
+            text: f'{root.rs_next_payment}/1/{root.rs_payment_year}'

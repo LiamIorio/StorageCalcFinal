@@ -1,0 +1,57 @@
+<HomeScreen>:
+    id:hs
+    GridLayout:
+        id: grid_layout
+        cols: 3
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width , self.height
+
+        Label:
+            text: 'Payment:'
+
+            color: 0,0,0,1
+        MyButton:
+            text: '1 Month'
+            on_release: root.set_pay_val(1)
+
+        MyButton:
+            text: '6 Month'
+            on_release: root.set_pay_val(6)
+
+        Label:
+            text: str(root.payment)
+            color: 0,0,0,1
+
+        Label:
+            text: 'Unit size:'
+            color: 0,0,0,1
+
+        TextInput:
+            id: input_box
+            on_text_validate: root.set_unit_size()
+            multiline: False
+            font_size: '50sp'
+
+        Label:
+            text: root.unit_size
+            color: 0,0,0,1
+
+        MyButton:
+            text: 'THINK!'
+            id: think_b
+
+            on_press:
+                root.set_base_price()
+                root.set_calc_vals()
+            on_release: root.manager.current='result_screen'
+
+        MyButton:
+            id: pr_b
+            text: 'Prorate out'
+
+            on_release:
+                root.pro_rate_out()
+                root.manager.current='pro_screen'
